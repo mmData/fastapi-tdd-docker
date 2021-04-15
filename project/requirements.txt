@@ -1,0 +1,12 @@
+click==7.1.2
+fastapi==0.63.0
+h11==0.12.0
+pydantic==1.8.1
+starlette==0.13.6
+typing-extensions==3.7.4.3
+uvicorn==0.13.4
+asyncpg==0.22.0
+tortoise-orm==0.16.21
+pytest==6.2.2
+requests==2.25.1
+gunicorn==20.0.4
