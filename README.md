@@ -1,6 +1,8 @@
 # About this application
 It is entirely based on the course https://testdriven.io/courses/tdd-fastapi/getting-started/ with changelog 1.2.0
 
+![Continuous Integration and Delivery](https://github.com/mmdata/fastapi-tdd-docker/workflows/Continuous%20Integration%20and%20Delivery/badge.svg?branch=master)
+
 ## Running the Docker container
 It might happen that we have an error saying that there is no space to build the docker image. In this case do:
 - `docker system prune`
