@@ -1,8 +1,9 @@
 # project/app/api/crud.py
 
+from typing import List, Union
+
 from app.models.pydantic import SummaryPayloadSchema
 from app.models.tortoise import TextSummary
-from typing import Union, List
 
 
 async def post(payload: SummaryPayloadSchema) -> int:
