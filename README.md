@@ -33,6 +33,10 @@ Then:
 ## Running the tests
 With the container up and running execute:
 - `docker-compose exec web python -m pytest -v`
+To run the tests with coverage:
+- `docker-compose exec web python -m pytest --cov="."`
+Run tests with coverage and generate html report:
+- `docker-compose exec web python -m pytest --cov="." --cov-report html`
 
 ## Running the app without Docker
 - `uvicorn app.main:app --port 5000`
@@ -65,6 +69,16 @@ Apply database migration:
 
 Create a new summary:
 - `http --json POST https://<app-name>.herokuapp.com/summaries/ url=https://testdriven.io`
+
+# Formatting and sorting
+Check what changes will be made:
+- `docker-compose exec web black . --check`
+Format files
+- `docker-compose exec web black .`
+To check what the ordering will do:
+- `docker-compose exec web isort . --check-only`
+Apply the changes:
+- `docker-compose exec web isort .`
 
 # To Do
 - Create cli.sh

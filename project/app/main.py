@@ -1,11 +1,13 @@
 # project/app/main.py
 
-from fastapi import FastAPI
-import uvicorn
-from tortoise.contrib.fastapi import register_tortoise
-import os
-from app.api import ping, summaries
 import logging
+import os
+
+import uvicorn
+from fastapi import FastAPI
+from tortoise.contrib.fastapi import register_tortoise
+
+from app.api import ping, summaries
 from app.db import init_db
 
 log = logging.getLogger("uvicorn")
@@ -15,9 +17,9 @@ def create_application() -> FastAPI:
     application = FastAPI()
 
     application.include_router(ping.router)
-    application.include_router(summaries.router,
-                               prefix="/summaries",
-                               tags=["summaries"])
+    application.include_router(
+        summaries.router, prefix="/summaries", tags=["summaries"]
+    )
 
     return application
 
@@ -37,4 +39,4 @@ async def shutdown_event():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, port=5000, host='0.0.0.0')
+    uvicorn.run(app, port=5000, host="0.0.0.0")
