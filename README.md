@@ -23,6 +23,16 @@ To do the build and run in one commands:
 To bring down the container and volume:
 - `docker-compose down -v`
 
+IMPORTANT: if the relation elation "textsummary" is not created we can ssh the container and do it manually:
+- `docker exec -it <container_ID> bash`
+- `python3 app/db.py`
+
+or directly:
+- `docker-compose exec web python3 app/db.py`
+
+To test that the database is initialiased and we can actually create a new summary:
+- `http --json POST http://localhost:8004/summaries/ url=http://testdriven.io`
+
 ## Checking the logs
 - `docker-compose logs web`
 
@@ -30,6 +40,7 @@ To bring down the container and volume:
 - `docker-compose exec web-db psql -U postgres`
 Then:
 - `\c web_dev`
+- `\dt`
 - `\q`
 
 ## Running the tests
